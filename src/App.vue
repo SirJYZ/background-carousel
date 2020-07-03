@@ -14,7 +14,7 @@
       indicator-color="orange"
       @clickItem="handleClickItem"
       @change="handleChange"
-    ></bg-carousel>
+    />
   </div>
 </template>
 
