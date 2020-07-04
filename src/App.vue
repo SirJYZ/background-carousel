@@ -19,13 +19,8 @@
 </template>
 
 <script>
-import BgCarousel from "./components/BgCarousel";
-
 export default {
   name: "App",
-  components: {
-    BgCarousel
-  },
   data() {
     return {
       carouselList: [
