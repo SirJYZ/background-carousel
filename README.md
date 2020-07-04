@@ -13,6 +13,7 @@ npm run serve
 
 ## Usage
 #### Import components on pages that require carousel image component
+##### app.vue:
 ```html
 <template>
   <div id="app">
@@ -35,29 +36,24 @@ npm run serve
 </template>
 ```
 ```javascript
-import BgCarousel from "BgCarousel";
-
 export default {
-  components: {
-    BgCarousel
-  },
   data() {
     return {
       carouselList: [
         {
           id: 0,
           src:
-            "https://images.pexels.com/photos/1809344/pexels-photo-1809344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            "https://images.pexels.com/photos/1352251/pexels-photo-1352251.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         },
         {
           id: 1,
           src:
-            "https://images.pexels.com/photos/1510659/pexels-photo-1510659.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            "https://images.pexels.com/photos/1425174/pexels-photo-1425174.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         },
         {
           id: 2,
           src:
-            "https://images.pexels.com/photos/3078831/pexels-photo-3078831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            "https://images.pexels.com/photos/1352296/pexels-photo-1352296.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         }
       ]
     };
@@ -72,6 +68,13 @@ export default {
   }
 };
 ```
+
+##### main.js
+```javascript
+import Vue from "vue";
+import BgCarousel from "./components/BgCarousel/index";
+Vue.use(BgCarousel);
+````
 
 ## Props
 * list
