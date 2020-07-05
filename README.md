@@ -77,7 +77,7 @@ export default {
 ##### main.js
 ```javascript
 import Vue from "vue";
-import BackgroundCarousel from "./components/BgCarousel/lib/plugin";
+import BackgroundCarousel from "BackgroundCarousel";
 Vue.use(BackgroundCarousel);
 ````
 
