@@ -1,9 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-// 引入插件
-import BgCarousel from "./components/BgCarousel/index";
-// 使用插件
+import BgCarousel from "./components/BgCarousel/lib/plugin";
 Vue.use(BgCarousel);
 
 Vue.config.productionTip = false;

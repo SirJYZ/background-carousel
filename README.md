@@ -1,7 +1,7 @@
 # bgCarousel
 
 ## Purpose
-#### BgCarousel is a simple vue carousel plugin. By setting the aspect ratio of the carousel image, the carousel image component can occupy a place in advance before the image rendering is completed.
+#### BgCarousel is a simple vue carousel plugin. By setting the aspect ratio of the carousel image, the carousel image component can occupy a place in advance before the image rendering is completed.The picture will be presented as div-background.
 
 ## Quick start
 ```
