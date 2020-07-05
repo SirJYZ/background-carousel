@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-import BackgroundCarousel from "BackgroundCarousel";
+import BackgroundCarousel from "background-carousel";
 Vue.use(BackgroundCarousel);
 
 Vue.config.productionTip = false;
