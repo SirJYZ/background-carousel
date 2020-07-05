@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <bg-carousel
+    <background-carousel
       :list="carouselList"
       list-key-name="id"
       list-img-name="src"
