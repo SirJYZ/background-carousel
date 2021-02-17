@@ -15,11 +15,6 @@
       @clickItem="handleClickItem"
       @change="handleChange"
     />
-    <img
-      src="https://images.pexels.com/photos/1352251/pexels-photo-1352251.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-      alt=""
-      style="display:block;width:100%;transform:translate3d(100px,0,0)"
-    />
   </div>
 </template>
 
