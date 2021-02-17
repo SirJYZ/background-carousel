@@ -9,7 +9,7 @@
         width: carouselWidth,
         transform: `translate3d(${carouselTransformX}px,0,0)`,
         'transition-duration': `${transitionTime}ms`,
-        'transition-timing-function': timingFunctionName
+        'transition-timing-function': timingFunctionName,
       }"
     >
       <li
@@ -17,7 +17,7 @@
         :key="item[listKeyName] || index"
         :style="{
           backgroundImage: `url(${item[listImgName]})`,
-          transform: item.transform
+          transform: item.transform,
         }"
         @touchstart="handleTouchstart"
         @touchmove="handleTouchmove"
@@ -27,6 +27,7 @@
     <div v-if="list.length && showIndicators" class="indicators">
       <i
         v-for="(item, index) in list"
+        :key="index"
         :class="{ active: index === indicatorIndex }"
         :style="{ 'background-color': indicatorColor }"
       ></i>
@@ -42,49 +43,49 @@ export default {
   props: {
     list: {
       type: Array,
-      required: true
+      required: true,
     },
     listKeyName: {
       type: String,
-      required: true
+      required: true,
     },
     listImgName: {
       type: String,
-      required: true
+      required: true,
     },
     initialIndex: {
       type: Number,
-      default: 0
+      default: 0,
     },
     loop: {
       type: Boolean,
-      default: true
+      default: true,
     },
     autoplayTime: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
     transitionTime: {
       // 轮播图的transform动画时间
       type: Number,
-      default: 300
+      default: 300,
     },
     paddingTop: {
       type: String,
-      default: "50%"
+      default: "50%",
     },
     timingFunctionName: {
       type: String,
-      default: "linear"
+      default: "linear",
     },
     showIndicators: {
       type: Boolean,
-      default: true
+      default: true,
     },
     indicatorColor: {
       type: String,
-      default: "#fff"
-    }
+      default: "#fff",
+    },
   },
   data() {
     return {
@@ -95,7 +96,7 @@ export default {
       initialX: "", // 每次touchstart时的pageX
       moveX: "", // 每次touchmove时的pageX
       previousTime: null, // 每次touchmove时的时间戳
-      immediate: false // transformX是否该瞬间切换（是否有过渡状态）
+      immediate: false, // transformX是否该瞬间切换（是否有过渡状态）
     };
   },
   computed: {
@@ -111,17 +112,17 @@ export default {
     },
     carouselTransformX() {
       return -this.currentIndex * this.screenWidth;
-    }
+    },
   },
   watch: {
     currentIndex: {
-      handler: "handleEmitChange"
-    }
+      handler: "handleEmitChange",
+    },
   },
   created() {
     // 这一步的目的是循环时可以改变第一张和最后一张的transformX
     if (this.loop) {
-      this.list.forEach(el => {
+      this.list.forEach((el) => {
         this.$set(el, "transform", "translate3d(0,0,0)");
       });
     }
@@ -179,6 +180,8 @@ export default {
       this.stop(); // 每次手指触摸屏幕的时候即暂停掉轮播
     },
     handleTouchmove(e) {
+      // handleTouchmove用来处理两个边缘情况下的瞬间展示
+
       // 节流
       const now = new Date().getTime();
       if (!this.previousTime) {
@@ -212,7 +215,7 @@ export default {
       if (endX === this.initialX) {
         // 这里判断为单击事件
         this.$emit("clickItem", {
-          detail: params.detail
+          detail: params.detail,
         });
         this.slide();
         return;
@@ -270,7 +273,7 @@ export default {
             this.currentIndex--;
             _slide();
           }
-        } else {
+        } else if (direction === "toLeft") {
           if (this.currentIndex === this.list.length - 1) {
             // 切换到第一张后继续向左滚动
             this.currentIndex++;
@@ -298,8 +301,8 @@ export default {
       if (newVal !== -1 && newVal !== this.list.length) {
         this.$emit("change", newVal);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
