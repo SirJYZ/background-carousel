@@ -1,5 +1,5 @@
 {
-  "name": "background-carousel",
+  "name": "vue2-background-carousel",
   "version": "1.0.2",
   "description": "background-carousel is a simple vue mobile carousel plugin. By setting the aspect ratio of the carousel image, the carousel image component can occupy a place in advance before the image rendering is completed.The picture will be presented as div-background.",
   "main": "index.js",
