@@ -1,24 +1,31 @@
-# background-carousel
+# vue2-background-carousel
 
 ## Purpose
-#### background-carousel is a simple vue mobile carousel plugin. By setting the aspect ratio of the carousel image, the carousel image component can occupy a place in advance before the image rendering is completed.The picture will be presented as div-background.
+
+#### vue2-background-carousel is a simple vue2 mobile carousel plugin. By setting the aspect ratio of the carousel image, the carousel image component can occupy a place in advance before the image rendering is completed.The picture will be presented as div-background.
 
 ## Preview URL
+
 ```html
 https://sirjyz.github.io/background-carousel/dist/index.html
 ```
 
 ## Quick start
+
 ```
 npm install
 ```
+
 ```
 npm run serve
 ```
 
 ## Usage
+
 #### Import components on pages that require carousel image component
+
 ##### app.vue:
+
 ```html
 <template>
   <div id="app">
@@ -40,6 +47,7 @@ npm run serve
   </div>
 </template>
 ```
+
 ```javascript
 export default {
   data() {
@@ -48,19 +56,19 @@ export default {
         {
           id: 0,
           src:
-            "https://images.pexels.com/photos/1352251/pexels-photo-1352251.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            "https://images.pexels.com/photos/1352251/pexels-photo-1352251.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         },
         {
           id: 1,
           src:
-            "https://images.pexels.com/photos/1425174/pexels-photo-1425174.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            "https://images.pexels.com/photos/1425174/pexels-photo-1425174.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         },
         {
           id: 2,
           src:
-            "https://images.pexels.com/photos/1352296/pexels-photo-1352296.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        }
-      ]
+            "https://images.pexels.com/photos/1352296/pexels-photo-1352296.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        },
+      ],
     };
   },
   methods: {
@@ -69,83 +77,93 @@ export default {
     },
     handleChange(e) {
       // console.log(e);
-    }
-  }
+    },
+  },
 };
 ```
 
 ##### main.js
+
 ```javascript
 import Vue from "vue";
 import BackgroundCarousel from "background-carousel";
 Vue.use(BackgroundCarousel);
-````
+```
 
 ## Props
-* list
-    * type: Array
-    * required: true
-    * Description: List of pictures provided to the carousel component
 
-* listKeyName
-    * type: String
-    * required: true
-    * Description: The value of v-bind: key in the loop of the carousel component list. For example,the list is [{imgId:0,img:'picName'}], then listKeyName is 'imgId'. 
+- list
 
-* listImgName
-    * type: String
-    * required: true
-    * Description: The key value of the picture in the cycle of the carousel component list. For example,the list is [{imgId:0,img:'picName'}], then listImgName is 'img'. 
+  - type: Array
+  - required: true
+  - Description: List of pictures provided to the carousel component
 
-* paddingTop
-    * type: String
-    * default: "50%"
-    * Description: Picture aspect ratio
+- listKeyName
 
-* initialIndex
-    * type: Number
-    * default: 0
-    * Description: Which picture to show at the beginning
+  - type: String
+  - required: true
+  - Description: The value of v-bind: key in the loop of the carousel component list. For example,the list is [{imgId:0,img:'picName'}], then listKeyName is 'imgId'.
 
-* loop
-    * type: Boolean
-    * default: true
-    * Description: Whether to enable loop 
+- listImgName
 
-* autoplayTime
-    * type: Number
-    * default: 3000
-    * Description: Time to switch pictures
+  - type: String
+  - required: true
+  - Description: The key value of the picture in the cycle of the carousel component list. For example,the list is [{imgId:0,img:'picName'}], then listImgName is 'img'.
 
-* transitionTime
-    * type: Number
-    * default: 300
-    * Description: Picture transform animation time
+- paddingTop
 
-* timingFunctionName
-    * type: String
-    * default: "linear"
-    * Description: Transition-timing-function name. For example, 'ease-out' or 'ease-out'.
+  - type: String
+  - default: "50%"
+  - Description: Picture aspect ratio
 
-* showIndicators
-    * type: Boolean
-    * default: true
-    * Description: Whether to show the indicator
+- initialIndex
 
-* indicatorColor
-    * type: String
-    * default: "#fff"
-    * Description: Indicator background color
+  - type: Number
+  - default: 0
+  - Description: Which picture to show at the beginning
+
+- loop
+
+  - type: Boolean
+  - default: true
+  - Description: Whether to enable loop
+
+- autoplayTime
+
+  - type: Number
+  - default: 3000
+  - Description: Time to switch pictures
+
+- transitionTime
+
+  - type: Number
+  - default: 300
+  - Description: Picture transform animation time
+
+- timingFunctionName
+
+  - type: String
+  - default: "linear"
+  - Description: Transition-timing-function name. For example, 'ease-out' or 'ease-out'.
+
+- showIndicators
+
+  - type: Boolean
+  - default: true
+  - Description: Whether to show the indicator
+
+- indicatorColor
+  - type: String
+  - default: "#fff"
+  - Description: Indicator background color
 
 ## Methods
-* clickItem
-    * Description: Trigger event when clicked
-    * Callback parameter: event: Event
 
-* change
-    * Description: Trigger event after the end of each carousel
-    * Callback parameter: index(Index of current Picture)
+- clickItem
 
+  - Description: Trigger event when clicked
+  - Callback parameter: event: Event
 
-
-
+- change
+  - Description: Trigger event after the end of each carousel
+  - Callback parameter: index(Index of current Picture)
